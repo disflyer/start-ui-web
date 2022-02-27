@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   Avatar,
+  Button,
   Flex,
   Menu,
   MenuButton,
@@ -23,10 +24,12 @@ import {
   FiSun,
   FiUser,
 } from 'react-icons/fi';
+import { Link as RouterLink } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 
 import appBuild from '@/../app-build.json';
 import { useAccount } from '@/app/account/account.service';
+import { useAuthContext } from '@/app/auth/AuthContext';
 import { Icon } from '@/components';
 import { useDarkMode } from '@/hooks/useDarkMode';
 
@@ -97,8 +100,15 @@ export const AccountMenu = ({ ...rest }) => {
   const { colorModeValue } = useDarkMode();
   const { colorMode, toggleColorMode } = useColorMode();
   const { account, isLoading } = useAccount();
+  const { isAuthenticated } = useAuthContext();
   const navigate = useNavigate();
-
+  if (!isAuthenticated) {
+    return (
+      <Button as={RouterLink} to="/login" variant="@primary">
+        Login
+      </Button>
+    );
+  }
   return (
     <Menu placement="bottom-end" {...rest}>
       <MenuButton borderRadius="full" _focus={{ shadow: 'outline' }}>
@@ -135,6 +145,7 @@ export const AccountMenu = ({ ...rest }) => {
             ? t('layout:accountMenu.switchColorModeLight')
             : t('layout:accountMenu.switchColorModeDark')}
         </MenuItem>
+
         <MenuDivider />
         <MenuItem
           icon={<Icon icon={FiLogOut} fontSize="lg" color="gray.400" />}
@@ -142,6 +153,7 @@ export const AccountMenu = ({ ...rest }) => {
         >
           {t('layout:accountMenu.logout')}
         </MenuItem>
+
         <AppVersion />
       </MenuList>
     </Menu>

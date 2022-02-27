@@ -1,9 +1,8 @@
 {
   "title": "Dashboard",
   "welcome": {
-    "title": "Welcome to Start UI",
-    "description": "An opinionated UI starter with React, Chakra UI, React Query & Formiz",
-    "author": "— From the <strong>BearStudio Team</strong>"
+    "title": "Welcome to ThunderBird",
+    "description": "A global (Fin Tech) mixed reality, meta verse solution & tool provider with global headquarter"
   },
   "links": {
     "github": "GitHub Repository",

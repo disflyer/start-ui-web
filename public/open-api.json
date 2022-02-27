@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0",
-    "title": "Start-UI API Documentation"
+    "title": "API Documentation"
   },
   "servers": [
     {
@@ -75,8 +75,8 @@
               "activated": true,
               "langKey": "en",
               "authorities": [
-                "ROLE_USER",
-                "ROLE_ADMIN"
+                "TEST",
+                "ADMIN"
               ]
             }
           },

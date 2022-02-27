@@ -1,6 +1,16 @@
 import React from 'react';
 
-import { Box, Stack } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Stack,
+} from '@chakra-ui/react';
+import { css } from '@emotion/css';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
@@ -62,15 +72,14 @@ const MainMenuItem = ({ to, ...rest }: any) => {
 
 export const MainMenu = ({ ...rest }) => {
   const { t } = useTranslation();
-  const { isAdmin } = useAccount();
+  // const { isAdmin } = useAccount();
   return (
     <Stack direction="row" spacing="1" {...rest}>
       <MainMenuItem to="/dashboard">
         {t('layout:mainMenu.dashboard')}
       </MainMenuItem>
-      {isAdmin && (
-        <MainMenuItem to="/admin">{t('layout:mainMenu.admin')}</MainMenuItem>
-      )}
+      <MainMenuItem to="/admin">{t('layout:mainMenu.admin')}</MainMenuItem>
+      <MainMenuItem to="/about">{t('layout:mainMenu.about')}</MainMenuItem>
     </Stack>
   );
 };

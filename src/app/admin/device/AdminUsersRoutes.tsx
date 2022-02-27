@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
-import { PageUserCreate } from '@/app/admin/users/PageUserCreate';
-import { PageUserUpdate } from '@/app/admin/users/PageUserUpdate';
-import { PageUsers } from '@/app/admin/users/PageUsers';
 import { Error404 } from '@/errors';
+
+import { PageUsers } from './PageDevice';
+import { PageUserCreate } from './PageUserCreate';
+import { PageUserUpdate } from './PageUserUpdate';
 
 const AdminUsersRoutes = () => {
   return (

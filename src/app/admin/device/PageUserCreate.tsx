@@ -5,10 +5,11 @@ import { Formiz, useForm } from '@formiz/core';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { UserForm } from '@/app/admin/users/UserForm';
-import { useUserCreate } from '@/app/admin/users/users.service';
 import { Page, PageBottomBar, PageContent, PageTopBar } from '@/app/layout';
 import { useToastError, useToastSuccess } from '@/components';
+
+import { UserForm } from './UserForm';
+import { useUserCreate } from './users.service';
 
 export const PageUserCreate = () => {
   const { t } = useTranslation();
@@ -64,7 +65,7 @@ export const PageUserCreate = () => {
       >
         <form noValidate onSubmit={form.submit}>
           <PageTopBar showBack onBack={() => navigate(-1)}>
-            <Heading size="md">{t('users:create.title')}</Heading>
+            <Heading size="md">Create New Device</Heading>
           </PageTopBar>
           <PageContent>
             <UserForm />
@@ -79,7 +80,7 @@ export const PageUserCreate = () => {
                 variant="@primary"
                 isLoading={createUserLoading}
               >
-                {t('users:create.action.save')}
+                Create Device
               </Button>
             </ButtonGroup>
           </PageBottomBar>

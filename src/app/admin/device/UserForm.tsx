@@ -33,8 +33,7 @@ export const UserForm = () => {
     >
       <FieldInput
         name="login"
-        label={t('users:data.login.label')}
-        required={t('users:data.login.required') as string}
+        label="Device Type"
         validations={[
           {
             rule: isMinLength(2),
@@ -51,7 +50,14 @@ export const UserForm = () => {
             message: t('users:data.login.invalid'),
           },
         ]}
+        required
       />
+      <FieldInput name="firstName" label="Device ID" required />
+      <FieldInput name="firstName" label="Device Name" required />
+      <FieldInput name="firstName" label="Device Owner" required />
+      <FieldInput name="firstName" label="Business Name" required />
+      <FieldInput name="firstName" label="Device Status" required />
+      {/* 
       <Stack direction={{ base: 'column', sm: 'row' }} spacing="6">
         <FieldInput name="firstName" label={t('users:data.firstname.label')} />
         <FieldInput name="lastName" label={t('users:data.lastname.label')} />
@@ -89,7 +95,7 @@ export const UserForm = () => {
         label={t('users:data.authorities.label')}
         options={authorities}
         required={t('users:data.authorities.required') as string}
-      />
+      /> */}
     </Stack>
   );
 };

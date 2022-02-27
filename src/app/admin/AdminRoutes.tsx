@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { PageApiDocumentation } from '@/app/admin/api/PageApiDocumentation';
+import Download from '@/app/admin/download/Download';
 import { Error404 } from '@/errors';
 
 const AdminUsersRoutes = React.lazy(
-  () => import('@/app/admin/users/AdminUsersRoutes')
+  () => import('@/app/admin/device/AdminUsersRoutes')
 );
 
 const AdminRoutes = () => {
@@ -14,7 +14,7 @@ const AdminRoutes = () => {
     <Routes>
       <Route path="/" element={<Navigate to="users" replace />} />
       <Route path="users/*" element={<AdminUsersRoutes />} />
-      <Route path="api/*" element={<PageApiDocumentation />} />
+      <Route path="download/*" element={<Download />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
   );

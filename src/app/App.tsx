@@ -13,6 +13,8 @@ import {
 } from '@/app/router/guards';
 import { Error404, ErrorBoundary } from '@/errors';
 
+import AboutRoutes from './about/AboutRoutes';
+
 const AdminRoutes = React.lazy(() => import('@/app/admin/AdminRoutes'));
 const AccountRoutes = React.lazy(() => import('@/app/account/AccountRoutes'));
 const DashboardRoutes = React.lazy(
@@ -54,23 +56,27 @@ export const App = () => {
                 }
               />
 
-              <Route
-                path="dashboard/*"
+              <Route path="dashboard/*" element={<DashboardRoutes />} />
+
+              {/* <Route
+                path="main/*"
                 element={
                   <AuthenticatedRouteGuard>
-                    <DashboardRoutes />
+                    <AboutRoutes />
                   </AuthenticatedRouteGuard>
                 }
-              />
+              /> */}
 
               <Route
                 path="admin/*"
                 element={
-                  <AdminRouteGuard>
+                  <AuthenticatedRouteGuard>
                     <AdminRoutes />
-                  </AdminRouteGuard>
+                  </AuthenticatedRouteGuard>
                 }
               />
+
+              <Route path="about/*" element={<AboutRoutes />} />
 
               <Route path="*" element={<Error404 />} />
             </Routes>

@@ -29,7 +29,7 @@ UserDTO:
     email: admin@test.com
     activated: true
     langKey: en
-    authorities: ['ROLE_USER', 'ROLE_ADMIN']
+    authorities: ['TEST', 'ADMIN']
 User:
   allOf:
     - $ref: '#/UserDTO'

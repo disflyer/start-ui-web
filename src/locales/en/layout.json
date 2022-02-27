@@ -1,7 +1,8 @@
 {
   "mainMenu": {
     "dashboard": "Dashboard",
-    "admin": "Admin"
+    "admin": "XR Devices",
+    "about": "About"
   },
   "accountMenu": {
     "version": {

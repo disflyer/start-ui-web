@@ -10,14 +10,14 @@ import {
 import { Account } from '@/app/account/account.types';
 import { DEFAULT_LANGUAGE_KEY } from '@/constants/i18n';
 
-export const useAccount = (config: UseQueryOptions<Account> = {}) => {
-  const { i18n } = useTranslation();
+export const useAccount = (config: UseQueryOptions<any> = {}) => {
+  // const { i18n } = useTranslation();
   const { data: account, ...rest } = useQuery(
     ['account'],
     (): Promise<Account> => Axios.get('/account'),
     {
       onSuccess: (data) => {
-        i18n.changeLanguage(data?.langKey);
+        // i18n.changeLanguage(data?.langKey);
 
         if (config?.onSuccess) {
           config?.onSuccess(data);
@@ -26,16 +26,12 @@ export const useAccount = (config: UseQueryOptions<Account> = {}) => {
       ...config,
     }
   );
-  const isAdmin = !!account?.authorities?.includes('ROLE_ADMIN');
-  return { account, isAdmin, ...rest };
+  // const isAdmin = !!account?.authorities?.includes('ROLE_ADMIN');
+  return { account, ...rest };
 };
 
 export const useCreateAccount = (
-  config: UseMutationOptions<
-    Account,
-    unknown,
-    Pick<Account, 'login' | 'email' | 'langKey'> & { password: string }
-  > = {}
+  config: UseMutationOptions<Account, unknown, any> = {}
 ) => {
   return useMutation(
     ({
@@ -69,12 +65,12 @@ export const useActivateAccount = (
 export const useUpdateAccount = (
   config: UseMutationOptions<Account, unknown, Account> = {}
 ) => {
-  const { i18n } = useTranslation();
+  // const { i18n } = useTranslation();
   return useMutation(
     (account): Promise<Account> => Axios.post('/account', account),
     {
       onMutate: (data) => {
-        i18n.changeLanguage(data?.langKey);
+        // i18n.changeLanguage(data?.langKey);
 
         if (config?.onMutate) {
           config.onMutate(data);

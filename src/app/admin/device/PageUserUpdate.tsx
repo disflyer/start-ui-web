@@ -14,7 +14,6 @@ import { Formiz, useForm } from '@formiz/core';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { useUser, useUserUpdate } from '@/app/admin/users/users.service';
 import {
   Loader,
   Page,
@@ -28,6 +27,7 @@ import { useDarkMode } from '@/hooks/useDarkMode';
 
 import { UserForm } from './UserForm';
 import { UserStatus } from './UserStatus';
+import { useUser, useUserUpdate } from './users.service';
 
 export const PageUserUpdate = () => {
   const { t } = useTranslation();

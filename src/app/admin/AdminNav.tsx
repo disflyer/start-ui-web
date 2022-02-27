@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { DownloadIcon, SettingsIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
-import { FiUsers } from 'react-icons/fi';
 import { GoBook } from 'react-icons/go';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -18,17 +18,17 @@ export const AdminNav = () => {
           as={Link}
           to="/admin/users"
           isActive={isActive('/admin/users')}
-          icon={FiUsers}
+          icon={SettingsIcon}
         >
-          {t('admin:nav.users')}
+          Devices
         </NavItem>
         <NavItem
           as={Link}
-          to="/admin/api"
-          isActive={isActive('/admin/api')}
-          icon={GoBook}
+          to="/admin/download"
+          isActive={isActive('/admin/download')}
+          icon={DownloadIcon}
         >
-          {t('admin:nav.apiDocumentation')}
+          APK Download
         </NavItem>
       </NavGroup>
     </Nav>

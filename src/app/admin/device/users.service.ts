@@ -7,8 +7,9 @@ import {
   useQueryClient,
 } from 'react-query';
 
-import { User, UserList } from '@/app/admin/users/users.types';
 import { DEFAULT_LANGUAGE_KEY } from '@/constants/i18n';
+
+import { User, UserList } from './users.types';
 
 type UserMutateError = {
   title: string;

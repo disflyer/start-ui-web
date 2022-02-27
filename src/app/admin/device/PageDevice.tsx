@@ -32,12 +32,6 @@ import {
 import { useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { UserStatus } from '@/app/admin/users/UserStatus';
-import {
-  useUserList,
-  useUserRemove,
-  useUserUpdate,
-} from '@/app/admin/users/users.service';
 import { Page, PageContent } from '@/app/layout';
 import { usePaginationFromUrl } from '@/app/router';
 import {
@@ -62,6 +56,8 @@ import {
 import { useDarkMode } from '@/hooks/useDarkMode';
 
 import { AdminNav } from '../AdminNav';
+import { UserStatus } from './UserStatus';
+import { useUserList, useUserRemove, useUserUpdate } from './users.service';
 
 const UserActions = ({ user, ...rest }) => {
   const { t } = useTranslation();
@@ -191,7 +187,7 @@ export const PageUsers = () => {
       <PageContent>
         <HStack mb="4">
           <Box flex="1">
-            <Heading size="md">{t('users:list.title')}</Heading>
+            <Heading size="md">Device Management</Heading>
           </Box>
           <Box>
             <Button
@@ -201,7 +197,7 @@ export const PageUsers = () => {
               variant="@primary"
               leftIcon={<FiPlus />}
             >
-              {t('users:list.actions.createUser')}
+              Create Device
             </Button>
             <IconButton
               display={{ base: 'flex', sm: 'none' }}
@@ -217,40 +213,32 @@ export const PageUsers = () => {
         <DataList>
           <DataListHeader isVisible={{ base: false, md: true }}>
             <DataListCell colName="login" colWidth="2">
-              {t('users:data.login.label')} / {t('users:data.email.label')}
+              Device Type
             </DataListCell>
-            <DataListCell
-              colName="id"
-              colWidth="4rem"
-              isVisible={{ base: false, lg: true }}
-            >
-              {t('users:data.id.label')}
+            <DataListCell colName="id" isVisible={{ base: false, lg: true }}>
+              Device ID
             </DataListCell>
             <DataListCell
               colName="authorities"
               isVisible={{ base: false, lg: true }}
             >
-              {t('users:data.authorities.label')}
+              Device Name
             </DataListCell>
             <DataListCell
               colName="created"
               isVisible={{ base: false, lg: true }}
             >
-              {t('users:data.createdBy.label')}
+              Device Owner
             </DataListCell>
             <DataListCell
               colName="lastModified"
               isVisible={{ base: false, md: true }}
             >
-              {t('users:data.modifiedBy.label')}
+              Business Name
             </DataListCell>
-            <DataListCell
-              colName="status"
-              colWidth={{ base: '2rem', md: '0.5' }}
-              align="center"
-            >
+            <DataListCell colName="status" align="center">
               <Box as="span" d={{ base: 'none', md: 'block' }}>
-                {t('users:data.status.label')}
+                Device Status
               </Box>
             </DataListCell>
             <DataListCell colName="actions" colWidth="4rem" align="flex-end" />
@@ -259,20 +247,12 @@ export const PageUsers = () => {
             <DataListRow as={LinkBox} key={user.id}>
               <DataListCell colName="login">
                 <HStack maxW="100%">
-                  <Avatar size="sm" name={user.login} mx="1" />
+                  {/* <Avatar size="sm" name={user.login} mx="1" /> */}
                   <Box minW="0">
                     <Text isTruncated maxW="full" fontWeight="bold">
-                      <LinkOverlay as={Link} to={user.login}>
-                        {user.login}
-                      </LinkOverlay>
-                    </Text>
-                    <Text
-                      isTruncated
-                      maxW="full"
-                      fontSize="sm"
-                      color={colorModeValue('gray.600', 'gray.300')}
-                    >
-                      {user.email}
+                      {/* <LinkOverlay as={Link} to={user.login}> */}
+                      NReal
+                      {/* </LinkOverlay> */}
                     </Text>
                   </Box>
                 </HStack>
@@ -335,7 +315,7 @@ export const PageUsers = () => {
                 <UserStatus isActivated={user.activated} />
               </DataListCell>
               <DataListCell colName="actions">
-                <UserActions user={user} />
+                {/* <UserActions user={user} /> */}
               </DataListCell>
             </DataListRow>
           ))}

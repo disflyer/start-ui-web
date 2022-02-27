@@ -140,6 +140,22 @@ export const PageRegister = () => {
                 defaultValue={i18n.language}
               />
               <FieldInput
+                name="company_Name"
+                label="Company Name"
+                required={'Company Name is required'}
+              />
+              <FieldInput
+                name="company_ShortName"
+                label="Company ShortName"
+                required={'Company ShortName is required'}
+              />
+              <FieldInput
+                name="phoneNumber"
+                label="phoneNumber"
+                required={'phoneNumber is required'}
+              />
+
+              {/* <FieldInput
                 name="login"
                 label={t('account:data.login.label')}
                 required={t('account:data.login.required') as string}
@@ -159,9 +175,9 @@ export const PageRegister = () => {
                     message: t('account:data.login.invalid'),
                   },
                 ]}
-              />
+              /> */}
               <FieldInput
-                name="email"
+                name="contact_Email"
                 label={t('account:data.email.label')}
                 required={t('account:data.email.required') as string}
                 validations={[
@@ -195,6 +211,8 @@ export const PageRegister = () => {
                   },
                 ]}
               />
+              <FieldInput name="contact_FirstName" label="Contact FirstName" />
+              <FieldInput name="contact_LastName" label="Contact LastName" />
               <Flex>
                 <Button
                   isLoading={isLoading}

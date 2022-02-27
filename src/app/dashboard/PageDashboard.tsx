@@ -27,7 +27,7 @@ export const PageDashboard = () => {
           {t('dashboard:title')}
         </Heading>
         <Alert status="success" colorScheme="brand" borderRadius="md">
-          <AlertIcon />
+          {/* <AlertIcon /> */}
           <Box flex="1">
             <AlertTitle fontSize="lg">
               {t('dashboard:welcome.title')}
@@ -35,13 +35,13 @@ export const PageDashboard = () => {
             <AlertDescription display="block">
               {t('dashboard:welcome.description')}
               <br />
-              <Text as="a" href="https://www.bearstudio.fr">
+              {/* <Text as="a" href="https://www.bearstudio.fr">
                 <Trans t={t} i18nKey="dashboard:welcome.author" />
-              </Text>
+              </Text> */}
             </AlertDescription>
           </Box>
         </Alert>
-        <ButtonGroup mt="4" spacing="4">
+        {/* <ButtonGroup mt="4" spacing="4">
           <Button
             variant="link"
             as="a"
@@ -57,7 +57,7 @@ export const PageDashboard = () => {
             <Icon icon={FiAlertCircle} me="1" />{' '}
             {t('dashboard:links.openIssue')}
           </Button>
-        </ButtonGroup>
+        </ButtonGroup> */}
       </PageContent>
     </Page>
   );

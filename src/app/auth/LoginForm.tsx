@@ -13,7 +13,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
 import { useLogin } from '@/app/auth/auth.service';
-import { FieldInput, useToastError } from '@/components';
+import { FieldInput, FieldSelect, useToastError } from '@/components';
 
 const MockedApiHint = () => {
   const { t } = useTranslation();
@@ -74,6 +74,21 @@ export const LoginForm = ({ onSuccess = () => undefined, ...rest }) => {
             label={t('auth:data.username.label')}
             required={t('auth:data.username.required') as string}
           />
+          {/* <FieldInput name="businessShortName" label="Business Name" />
+          <FieldSelect
+            name="environment"
+            label="Environment"
+            options={[
+              {
+                label: 'development',
+                value: 'development',
+              },
+              {
+                label: 'live',
+                value: 'live',
+              },
+            ]}
+          /> */}
           <FieldInput
             name="password"
             type="password"
